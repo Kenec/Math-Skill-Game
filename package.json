@@ -18,6 +18,12 @@
   "homepage": "https://github.com/Kenec/Math-Skill-Game#readme",
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.1.0",
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.3",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "lodash": "^4.17.11",
@@ -26,18 +32,12 @@
     "webpack": "^4.20.2",
     "webpack-dev-middleware": "^3.4.0",
     "webpack-dev-server": "^3.1.9",
-    "webpack-hot-middleware": "^2.24.2"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.1.0",
-    "@babel/core": "^7.1.0",
-    "@babel/node": "^7.0.0",
-    "@babel/preset-env": "^7.1.0",
-    "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.0.3",
+    "webpack-hot-middleware": "^2.24.2",
     "css-loader": "^1.0.0",
     "less": "^3.8.1",
     "less-loader": "^4.1.0",
     "style-loader": "^0.23.0"
+  },
+  "devDependencies": {
   }
 }
