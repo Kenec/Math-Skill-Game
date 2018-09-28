@@ -18,9 +18,24 @@ export default class Game extends Component {
     answerIsCorrect: null,
     redraws: 5,
     doneStatus: null,
+    timer: 30,
   });
 	state = Game.initialState();
   
+  componentDidMount() {
+    this.interval = setInterval(() => this.countDown(), 1000);
+  }
+
+  countDown = () => {
+    if(this.state.timer !== 0) {
+      this.setState(prevState => ({
+        timer: prevState.timer - 1
+      }));
+    } else {
+      this.updateDoneStatus();
+    }
+  };
+
   selectNumber = (clickedNumber) => {
   	if (this.state.selectedNumbers.indexOf(clickedNumber) >= 0) { return; }
     if (this.state.usedNumbers.indexOf(clickedNumber) >= 0) { return; }
@@ -77,7 +92,7 @@ export default class Game extends Component {
     	if(prevState.usedNumbers.length === 9) {
       	return { doneStatus: 'Done. Nice!' };
       }
-      if(prevState.redraws === 0 && !this.possibleSolutions(prevState)) {
+      if((prevState.redraws === 0 && !this.possibleSolutions(prevState) ) || this.state.timer === 0) {
       	return { doneStatus: 'Game Over!' };
       }
     });
@@ -93,11 +108,16 @@ export default class Game extends Component {
       usedNumbers,
       redraws,
       doneStatus,
+      timer
     } = this.state;
     
   	return (
      <div className="container">
-    	<h3>Play Nine</h3>
+      < hr />
+      <div className="row">
+        <div className="col-8 text-left"><h3>Play Nine</h3></div>
+        <div className="col-4 timer">Time left: {timer}s</div>
+      </div>
        <hr />
        <div className="row">
          <Stars numberOfStars={numberOfStars} />
@@ -107,6 +127,7 @@ export default class Game extends Component {
         	selectedNumbers={selectedNumbers}
           redraw={this.redraw}
           redraws={redraws}
+          doneStatus={doneStatus}
           acceptAnswer={this.acceptAnswer}
           />
         <Answer
@@ -124,7 +145,7 @@ export default class Game extends Component {
           selectedNumbers={selectedNumbers}
           selectNumber={this.selectNumber}
           usedNumbers={usedNumbers}
-          />
+        />
       }
     </div>
     );
