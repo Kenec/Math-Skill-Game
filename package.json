@@ -17,8 +17,10 @@
   },
   "homepage": "https://github.com/Kenec/Math-Skill-Game#readme",
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
+    "lodash": "^4.17.11",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "webpack": "^4.20.2",
