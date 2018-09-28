@@ -27,3 +27,10 @@ span {
   color: #99bb99;
   cursor: not-allowed
 }
+
+.timer {
+  border-radius: 50%;
+  color: rgb(107, 42, 5);
+  font-size: 18px;
+  font-weight: bold;
+}

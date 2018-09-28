@@ -40,7 +40,7 @@ const Button = (props) => {
       <br/><br/>
       <button 
         	className="btn btn-warning btn-sm"
-          disabled={props.redraws === 0}
+          disabled={props.redraws === 0 || props.doneStatus}
           onClick={props.redraw}>
           	<i className="fa fa-refresh"></i> {props.redraws}
         </button>
